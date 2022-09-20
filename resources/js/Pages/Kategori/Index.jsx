@@ -1,6 +1,6 @@
 import React from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/inertia-react";
 
 export default function Kategori({ auth, errors, kategori }) {
     return (
@@ -16,12 +16,13 @@ export default function Kategori({ auth, errors, kategori }) {
                         </p>
                     </div>
                     <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                        <button
-                            type="button"
+                        <Link
+                            href={route("kategori.create")}
+                            as="button"
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
                         >
                             Tambah Kategori
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="mt-8 flex flex-col">

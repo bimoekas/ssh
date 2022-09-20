@@ -24,6 +24,10 @@ Route::middleware(['auth', 'verified'])->group(
 
         Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
 
+        Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
+
+        Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
+
         Route::get('/kelompok-barang', function () {
             return Inertia::render('KelompokBarang');
         })->name('kelompok-barang');

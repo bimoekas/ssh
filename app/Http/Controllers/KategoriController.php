@@ -25,7 +25,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Kategori/Create');
     }
 
     /**
@@ -36,7 +36,13 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = $request->validate([
+            'nama' => ['required', 'min:3', 'max:255']
+        ]);
+
+        Kategori::create($form);
+
+        return redirect(route('kategori'));
     }
 
     /**
