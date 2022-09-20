@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/kategori', function () {
-    return Inertia::render('Kategori', [
+    return Inertia::render('Kategori/Index', [
         'kategori' => \App\Models\Kategori::all(),
     ]);
 })->middleware(['auth', 'verified'])->name('kategori');
