@@ -28,8 +28,16 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/team', function () {
-    return Inertia::render('Team');
-})->middleware(['auth', 'verified'])->name('team');
+Route::get('/kategori', function () {
+    return Inertia::render('Kategori');
+})->middleware(['auth', 'verified'])->name('kategori');
+
+Route::get('/kelompok-barang', function () {
+    return Inertia::render('KelompokBarang');
+})->middleware(['auth', 'verified'])->name('kelompok-barang');
+
+Route::get('/barang', function () {
+    return Inertia::render('Barang');
+})->middleware(['auth', 'verified'])->name('barang');
 
 require __DIR__.'/auth.php';

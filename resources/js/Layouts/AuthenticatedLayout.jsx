@@ -3,13 +3,12 @@ import { Dialog, Menu, Transition } from "@headlessui/react";
 import {
     Bars3BottomLeftIcon,
     BellIcon,
-    CalendarIcon,
-    ChartBarIcon,
-    FolderIcon,
     HomeIcon,
-    InboxIcon,
     UsersIcon,
     XMarkIcon,
+    TagIcon,
+    RectangleGroupIcon,
+    ArchiveBoxIcon
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import classNames from "classnames";
@@ -28,10 +27,22 @@ export default function AuthenticatedLayout(props) {
             current: route().current('dashboard'),
         },
         {
-            name: "Team",
-            href: route("team"),
-            icon: UsersIcon,
-            current: route().current('team'),
+            name: "Kategori",
+            href: route("kategori"),
+            icon: TagIcon,
+            current: route().current('kategori'),
+        },
+        {
+            name: "Kelompok Barang",
+            href: route("kelompok-barang"),
+            icon: RectangleGroupIcon,
+            current: route().current('kelompok-barang'),
+        },
+        {
+            name: "Barang",
+            href: route("barang"),
+            icon: ArchiveBoxIcon,
+            current: route().current('barang'),
         },
     ];
 
