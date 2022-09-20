@@ -30,6 +30,7 @@ Route::middleware(['auth', 'verified'])->group(
 
         Route::get('/kategori/{kategori}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
         Route::patch('/kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
+        Route::delete('/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
         Route::get('/kelompok-barang', function () {
             return Inertia::render('KelompokBarang');

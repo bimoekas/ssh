@@ -61,7 +61,7 @@ export default function Kategori({ auth, errors, kategori }) {
                                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                                     {item.nama}
                                                 </td>
-                                                <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium space-x-2 sm:pr-6">
                                                     <Link
                                                         href={route(
                                                             "kategori.edit",
@@ -70,6 +70,19 @@ export default function Kategori({ auth, errors, kategori }) {
                                                         className="text-indigo-600 hover:text-indigo-900"
                                                     >
                                                         Edit
+                                                        <span className="sr-only">
+                                                            , {item.nama}
+                                                        </span>
+                                                    </Link>
+                                                    <Link
+                                                        href={route(
+                                                            "kategori.destroy",
+                                                            item.id
+                                                        )}
+                                                        method="delete"
+                                                        className="text-red-600 hover:text-red-900"
+                                                    >
+                                                        Hapus
                                                         <span className="sr-only">
                                                             , {item.nama}
                                                         </span>
