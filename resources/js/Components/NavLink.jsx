@@ -1,17 +1,28 @@
-import React from 'react';
-import { Link } from '@inertiajs/inertia-react';
+import React from "react";
+import classNames from "classnames";
+import { Link } from "@inertiajs/inertia-react";
 
-export default function NavLink({ href, active, children }) {
+export default function NavLink({ href, active, name, icon: Icon }) {
     return (
         <Link
             href={href}
-            className={
+            className={classNames(
                 active
-                    ? 'inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out'
-                    : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out'
-            }
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+            )}
         >
-            {children}
+            <Icon
+                className={classNames(
+                    active
+                        ? "text-gray-300"
+                        : "text-gray-400 group-hover:text-gray-300",
+                    "mr-3 flex-shrink-0 h-6 w-6"
+                )}
+                aria-hidden="true"
+            />
+            {name}
         </Link>
     );
 }
