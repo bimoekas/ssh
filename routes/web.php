@@ -22,15 +22,7 @@ Route::middleware(['auth', 'verified'])->group(
             return Inertia::render('Dashboard');
         })->name('dashboard');
 
-        Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
-
-        Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
-
-        Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
-
-        Route::get('/kategori/{kategori}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
-        Route::patch('/kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
-        Route::delete('/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+        Route::resource('kategori', KategoriController::class)->except(['show']);
 
         Route::get('/kelompok-barang', function () {
             return Inertia::render('KelompokBarang');

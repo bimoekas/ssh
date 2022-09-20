@@ -7,7 +7,7 @@ import {
     XMarkIcon,
     TagIcon,
     RectangleGroupIcon,
-    ArchiveBoxIcon
+    ArchiveBoxIcon,
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import classNames from "classnames";
@@ -23,25 +23,25 @@ export default function AuthenticatedLayout(props) {
             name: "Dashboard",
             href: route("dashboard"),
             icon: HomeIcon,
-            current: route().current('dashboard'),
+            current: route().current("dashboard"),
         },
         {
             name: "Kategori",
-            href: route("kategori"),
+            href: route("kategori.index"),
             icon: TagIcon,
-            current: route().current('kategori'),
+            current: route().current("kategori.index"),
         },
         {
             name: "Kelompok Barang",
             href: route("kelompok-barang"),
             icon: RectangleGroupIcon,
-            current: route().current('kelompok-barang'),
+            current: route().current("kelompok-barang"),
         },
         {
             name: "Barang",
             href: route("barang"),
             icon: ArchiveBoxIcon,
-            current: route().current('barang'),
+            current: route().current("barang"),
         },
     ];
 

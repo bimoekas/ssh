@@ -42,7 +42,7 @@ class KategoriController extends Controller
 
         Kategori::create($form);
 
-        return redirect(route('kategori'));
+        return redirect(route('kategori.index'));
     }
 
     /**
@@ -82,7 +82,7 @@ class KategoriController extends Controller
 
         $kategori->update($form);
 
-        return redirect(route('kategori'));
+        return redirect(route('kategori.index'));
     }
 
     /**
@@ -95,6 +95,6 @@ class KategoriController extends Controller
     {
         $kategori->delete();
 
-        return redirect(route('kategori'));
+        return redirect(route('kategori.index'));
     }
 }
