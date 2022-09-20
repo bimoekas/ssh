@@ -4,7 +4,6 @@ import {
     Bars3BottomLeftIcon,
     BellIcon,
     HomeIcon,
-    UsersIcon,
     XMarkIcon,
     TagIcon,
     RectangleGroupIcon,

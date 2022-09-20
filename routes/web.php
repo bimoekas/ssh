@@ -29,7 +29,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/kategori', function () {
-    return Inertia::render('Kategori');
+    return Inertia::render('Kategori', [
+        'kategori' => \App\Models\Kategori::all(),
+    ]);
 })->middleware(['auth', 'verified'])->name('kategori');
 
 Route::get('/kelompok-barang', function () {
@@ -40,4 +42,4 @@ Route::get('/barang', function () {
     return Inertia::render('Barang');
 })->middleware(['auth', 'verified'])->name('barang');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
