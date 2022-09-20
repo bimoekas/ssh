@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,6 +16,24 @@ use Inertia\Inertia;
 |
 */
 
+Route::middleware(['auth', 'verified'])->group(
+    function () {
+        Route::get('/dashboard', function () {
+            return Inertia::render('Dashboard');
+        })->name('dashboard');
+
+        Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+
+        Route::get('/kelompok-barang', function () {
+            return Inertia::render('KelompokBarang');
+        })->name('kelompok-barang');
+
+        Route::get('/barang', function () {
+            return Inertia::render('Barang');
+        })->name('barang');
+    }
+);
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -24,22 +43,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/kategori', function () {
-    return Inertia::render('Kategori/Index', [
-        'kategori' => \App\Models\Kategori::all(),
-    ]);
-})->middleware(['auth', 'verified'])->name('kategori');
 
-Route::get('/kelompok-barang', function () {
-    return Inertia::render('KelompokBarang');
-})->middleware(['auth', 'verified'])->name('kelompok-barang');
 
-Route::get('/barang', function () {
-    return Inertia::render('Barang');
-})->middleware(['auth', 'verified'])->name('barang');
 
 require __DIR__ . '/auth.php';
