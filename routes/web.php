@@ -28,6 +28,9 @@ Route::middleware(['auth', 'verified'])->group(
 
         Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
 
+        Route::get('/kategori/{kategori}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
+        Route::patch('/kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
+
         Route::get('/kelompok-barang', function () {
             return Inertia::render('KelompokBarang');
         })->name('kelompok-barang');

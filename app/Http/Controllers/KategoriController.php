@@ -64,7 +64,7 @@ class KategoriController extends Controller
      */
     public function edit(Kategori $kategori)
     {
-        //
+        return Inertia::render('Kategori/Edit', ['kategori' => $kategori]);
     }
 
     /**
@@ -76,7 +76,13 @@ class KategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
-        //
+        $form = $request->validate([
+            'nama' => ['required', 'min:3', 'max:255']
+        ]);
+
+        $kategori->update($form);
+
+        return redirect(route('kategori'));
     }
 
     /**
