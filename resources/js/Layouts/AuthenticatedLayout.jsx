@@ -17,17 +17,23 @@ import { Link } from "@inertiajs/inertia-react";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavlink from "@/Components/ResponsiveNavLink";
 
-const navigation = [
-    { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-    { name: "Team", href: "#", icon: UsersIcon, current: false },
-    { name: "Projects", href: "#", icon: FolderIcon, current: false },
-    { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-    { name: "Documents", href: "#", icon: InboxIcon, current: false },
-    { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
-];
-
 export default function AuthenticatedLayout(props) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const navigation = [
+        {
+            name: "Dashboard",
+            href: route("dashboard"),
+            icon: HomeIcon,
+            current: route().current('dashboard'),
+        },
+        {
+            name: "Team",
+            href: route("team"),
+            icon: UsersIcon,
+            current: route().current('team'),
+        },
+    ];
 
     return (
         <>
@@ -99,7 +105,7 @@ export default function AuthenticatedLayout(props) {
                                         <nav className="space-y-1 px-2">
                                             {navigation.map((item) => (
                                                 <ResponsiveNavlink
-                                                key={item.name}
+                                                    key={item.name}
                                                     href={item.href}
                                                     active={item.current}
                                                     name={item.name}
