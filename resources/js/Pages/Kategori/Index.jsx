@@ -2,9 +2,9 @@ import React from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link } from "@inertiajs/inertia-react";
 
-export default function Kategori({ auth, errors, kategori }) {
+export default function Kategori({ auth, errors, success, kategori }) {
     return (
-        <AuthenticatedLayout auth={auth} errors={errors}>
+        <AuthenticatedLayout auth={auth} errors={errors} success={success}>
             <div className="py-4">
                 <div className="sm:flex sm:items-center">
                     <div className="sm:flex-auto">

@@ -15,7 +15,12 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Kategori/Index', ['kategori' => Kategori::all()]);
+        return Inertia::render(
+            'Kategori/Index',
+            [
+                'kategori' => Kategori::all()
+            ]
+        );
     }
 
     /**
@@ -42,7 +47,7 @@ class KategoriController extends Controller
 
         Kategori::create($form);
 
-        return redirect(route('kategori.index'));
+        return redirect(route('kategori.index'))->with('success', ['title' => 'Kategori Terimspan', 'body' => 'Data kategori berhasil disimpan']);
     }
 
     /**
@@ -82,7 +87,8 @@ class KategoriController extends Controller
 
         $kategori->update($form);
 
-        return redirect(route('kategori.index'));
+        return redirect(route('kategori.index'))
+            ->with('success', ['title' => 'Kategori Berhasil Diupdate', 'body' => 'Data kategori berhasil diupdate']);
     }
 
     /**

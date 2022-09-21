@@ -11,11 +11,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import classNames from "classnames";
-import { Link } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavlink from "@/Components/ResponsiveNavLink";
+import FlashMessage from "@/Components/FlashMessage";
 
 export default function AuthenticatedLayout(props) {
+    const { success } = usePage().props;
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const navigation = [
@@ -280,6 +282,7 @@ export default function AuthenticatedLayout(props) {
                     </main>
                 </div>
             </div>
+            {success && <FlashMessage message={success} />}
         </>
     );
 }
