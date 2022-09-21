@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveKategoriRequest;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -39,13 +40,10 @@ class KategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveKategoriRequest $request)
     {
-        $form = $request->validate([
-            'nama' => ['required', 'min:3', 'max:255']
-        ]);
 
-        Kategori::create($form);
+        Kategori::create($request->validated());
 
         return redirect(route('kategori.index'))->with('success', ['title' => 'Kategori Terimspan', 'body' => 'Data kategori berhasil disimpan']);
     }
@@ -79,13 +77,10 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(SaveKategoriRequest $request, Kategori $kategori)
     {
-        $form = $request->validate([
-            'nama' => ['required', 'min:3', 'max:255']
-        ]);
 
-        $kategori->update($form);
+        $kategori->update($request->validated());
 
         return redirect(route('kategori.index'))
             ->with('success', ['title' => 'Kategori Berhasil Diupdate', 'body' => 'Data kategori berhasil diupdate']);
