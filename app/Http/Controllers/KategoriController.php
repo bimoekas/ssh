@@ -18,7 +18,7 @@ class KategoriController extends Controller
         return Inertia::render(
             'Kategori/Index',
             [
-                'kategori' => Kategori::all()
+                'kategori' => Kategori::paginate(3)
             ]
         );
     }
