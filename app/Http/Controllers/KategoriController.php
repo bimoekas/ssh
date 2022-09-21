@@ -101,6 +101,8 @@ class KategoriController extends Controller
     {
         $kategori->delete();
 
-        return redirect()->back();
+        return redirect()->back()
+
+            ->with('success', ['title' => 'Kategori Dihapus', 'body' => 'Data kategori berhasil dihapus']);
     }
 }
