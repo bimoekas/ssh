@@ -1,11 +1,29 @@
 import React from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Inertia } from "@inertiajs/inertia";
 import { Link } from "@inertiajs/inertia-react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import classNames from "classnames";
 import Pagination from "@/Components/Pagination";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 export default function Kategori({ auth, errors, kategori }) {
+    function handleDelete(target) {
+        Swal.fire({
+            title: "Anda yakin ingin menghapus kategori?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Ya",
+            denyButtonText: "Tidak",
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Inertia.visit(route("kategori.destroy", target.id), {
+                    method: "delete",
+                });
+            } else if (result.isDenied) {
+                Swal.fire("Kategori batal dihapus", "", "info");
+            }
+        });
+    }
     return (
         <AuthenticatedLayout auth={auth} errors={errors}>
             <div className="py-4">
@@ -77,19 +95,17 @@ export default function Kategori({ auth, errors, kategori }) {
                                                             , {item.nama}
                                                         </span>
                                                     </Link>
-                                                    <Link
-                                                        href={route(
-                                                            "kategori.destroy",
-                                                            item.id
-                                                        )}
-                                                        method="delete"
-                                                        className="text-red-600 hover:text-red-900"
+                                                    <span
+                                                        className="text-red-600 hover:text-red-900 cursor-pointer"
+                                                        onClick={() =>
+                                                            handleDelete(item)
+                                                        }
                                                     >
                                                         Hapus
                                                         <span className="sr-only">
                                                             , {item.nama}
                                                         </span>
-                                                    </Link>
+                                                    </span>
                                                 </td>
                                             </tr>
                                         ))}
