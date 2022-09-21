@@ -101,6 +101,6 @@ class KategoriController extends Controller
     {
         $kategori->delete();
 
-        return redirect(route('kategori.index'));
+        return redirect()->back();
     }
 }
