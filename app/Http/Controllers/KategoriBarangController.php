@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\KategoriBarang;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -31,7 +32,9 @@ class KategoriBarangController extends Controller
      */
     public function create()
     {
-        return Inertia::render('KategoriBarang/Create');
+        return Inertia::render('KategoriBarang/Create', [
+            'kategori' => Kategori::all(),
+        ]);
     }
 
     /**
