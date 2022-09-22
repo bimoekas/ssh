@@ -78,7 +78,10 @@ class KategoriBarangController extends Controller
      */
     public function edit(KategoriBarang $kategoriBarang)
     {
-        return Inertia::render('KategoriBarang/Edit', ['kategori_barang' => $kategoriBarang]);
+        return Inertia::render('KategoriBarang/Edit', [
+            'kategori' => Kategori::all(),
+            'kategori_barang' => $kategoriBarang
+        ]);
     }
 
     /**
@@ -90,7 +93,18 @@ class KategoriBarangController extends Controller
      */
     public function update(Request $request, KategoriBarang $kategoriBarang)
     {
-        //
+        $validated = $request->validate([
+            'kode' => ['required', 'min:3', 'max:255',],
+            'nama' => ['required', 'min:3', 'max:255'],
+            'id_kategori' => ['required', 'exists:kategori,id']
+        ]);
+
+        $kategoriBarang->update($validated);
+
+        return redirect(route('kategori-barang'))->with('success', [
+            'title' => 'Kategori Barang Tersimpan',
+            'body' => 'Kategori Barang Berhasil Diupdate',
+        ]);
     }
 
     /**
