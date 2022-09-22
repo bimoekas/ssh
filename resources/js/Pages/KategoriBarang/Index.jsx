@@ -16,13 +16,13 @@ export default function KategoriBarang({ auth, errors, kategori_barang }) {
         }).then((result) => {
             // TODO: buat fitur hapus
             /* Read more about isConfirmed, isDenied below */
-            // if (result.isConfirmed) {
-            //     Inertia.visit(route("kategori.destroy", target.id), {
-            //         method: "delete",
-            //     });
-            // } else if (result.isDenied) {
-            //     Swal.fire("Kategori batal dihapus", "", "info");
-            // }
+            if (result.isConfirmed) {
+                Inertia.visit(route("kategori-barang.destroy", target.id), {
+                    method: "delete",
+                });
+            } else if (result.isDenied) {
+                Swal.fire("Kategori batal dihapus", "", "info");
+            }
         });
     }
     return (

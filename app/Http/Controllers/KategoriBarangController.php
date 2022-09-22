@@ -115,6 +115,11 @@ class KategoriBarangController extends Controller
      */
     public function destroy(KategoriBarang $kategoriBarang)
     {
-        //
+        $kategoriBarang->delete();
+
+        return redirect()->back()->with('success', [
+            'title' => 'Barang Telah Dihapus',
+            'body' => 'Barang Berhasil Dihapus',
+        ]);
     }
 }
