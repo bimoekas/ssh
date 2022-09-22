@@ -19,7 +19,7 @@ class KategoriBarangController extends Controller
         return Inertia::render(
             'KategoriBarang/Index',
             [
-                'kategori_barang' => KategoriBarang::paginate(3)
+                'kategori_barang' => KategoriBarang::with('kategori')->paginate(3),
             ]
         );
     }
