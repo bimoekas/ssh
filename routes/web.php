@@ -25,12 +25,7 @@ Route::middleware(['auth', 'verified'])->group(
 
         Route::resource('kategori', KategoriController::class)->except(['show']);
 
-        Route::get('/kategori-barang', [KategoriBarangController::class, 'index'])->name('kategori-barang');
-        Route::get('/kategori-barang/create', [KategoriBarangController::class, 'create'])->name('kategori-barang.create');
-        Route::post('/kategori-barang', [KategoriBarangController::class, 'store'])->name('kategori-barang.store');
-        Route::get('/kategori-barang/{kategori_barang}/edit', [KategoriBarangController::class, 'edit'])->name('kategori-barang.edit');
-        Route::patch('/kategori-barang/{kategori_barang}', [KategoriBarangController::class, 'update'])->name('kategori-barang.update');
-        Route::delete('/kategori-barang/{kategori_barang}', [KategoriBarangController::class, 'destroy'])->name('kategori-barang.destroy');
+        Route::resource('kategori-barang', KategoriBarangController::class)->except(['show']);
 
         Route::get('/barang', function () {
             return Inertia::render('Barang');

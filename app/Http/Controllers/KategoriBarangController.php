@@ -53,7 +53,7 @@ class KategoriBarangController extends Controller
 
         KategoriBarang::create($validated);
 
-        return redirect(route('kategori-barang'))->with('success', [
+        return redirect(route('kategori-barang.index'))->with('success', [
             'title' => 'Kategori Barang Tersimpan',
             'body' => 'Kategori Barang Berhasil Disimpan'
         ]);
@@ -101,7 +101,7 @@ class KategoriBarangController extends Controller
 
         $kategoriBarang->update($validated);
 
-        return redirect(route('kategori-barang'))->with('success', [
+        return redirect(route('kategori-barang.index'))->with('success', [
             'title' => 'Kategori Barang Tersimpan',
             'body' => 'Kategori Barang Berhasil Diupdate',
         ]);

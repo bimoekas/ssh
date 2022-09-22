@@ -35,9 +35,9 @@ export default function AuthenticatedLayout(props) {
         },
         {
             name: "Kategori Barang",
-            href: route("kategori-barang"),
+            href: route("kategori-barang.index"),
             icon: RectangleGroupIcon,
-            current: route().current("kategori-barang"),
+            current: route().current("kategori-barang.index"),
         },
         {
             name: "Barang",
