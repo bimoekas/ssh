@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Kategori;
+use App\Models\KategoriBarang;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +18,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Create Admin
+        $admin = User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
         ]);
+
+        //Generate 1 Kategori
+        $kategori = Kategori::factory()->create();
+
+
+        //Generate 5 Kategori Barang Dengan Kategori berID 1
+        KategoriBarang::factory(5)->create([
+            'id_kategori' => $kategori->id
+        ]);
+
+        //Generate 5 Kategori Barang, dalam proses generate kategori barang tersebut. 5 kategori juga akan otomatis tergenerate
+        KategoriBarang::factory(5)->create();
     }
 }

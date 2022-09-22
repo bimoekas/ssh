@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\KategoriController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +25,9 @@ Route::middleware(['auth', 'verified'])->group(
 
         Route::resource('kategori', KategoriController::class)->except(['show']);
 
-        Route::get('/kelompok-barang', function () {
-            return Inertia::render('KelompokBarang');
-        })->name('kelompok-barang');
+        Route::get('/kategori-barang', [KategoriBarangController::class, 'index'])->name('kategori-barang');
+        Route::get('/kategori-barang/create', [KategoriBarangController::class, 'create'])->name('kategori-barang.create');
+        Route::get('/kategori-barang/{kategori_barang}/edit', [KategoriBarangController::class, 'edit'])->name('kategori-barang.edit');
 
         Route::get('/barang', function () {
             return Inertia::render('Barang');

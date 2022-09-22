@@ -17,7 +17,7 @@ class KategoriFactory extends Factory
     public function definition()
     {
         return [
-            'nama'=>fake()->word(),
+            'nama' => fake()->word(),
         ];
     }
 }

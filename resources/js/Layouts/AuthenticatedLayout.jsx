@@ -34,10 +34,10 @@ export default function AuthenticatedLayout(props) {
             current: route().current("kategori.index"),
         },
         {
-            name: "Kelompok Barang",
-            href: route("kelompok-barang"),
+            name: "Kategori Barang",
+            href: route("kategori-barang"),
             icon: RectangleGroupIcon,
-            current: route().current("kelompok-barang"),
+            current: route().current("kategori-barang"),
         },
         {
             name: "Barang",
