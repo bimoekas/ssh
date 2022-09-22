@@ -1,10 +1,35 @@
 import { Fragment, useState } from "react";
 import { Transition } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
+import { usePage } from "@inertiajs/inertia-react";
 
-export default function FlashMessage({ message }) {
-    const [notificationOpen, setNotificationOpen] = useState(Boolean(message));
+export default function FlashMessage() {
+    const { flash } = usePage().props;
+    const [notificationOpen, setNotificationOpen] = useState(Boolean(flash));
+
+    function renderIcon() {
+        if (flash?.type === "success") {
+            return (
+                <CheckCircleIcon
+                    className="h-6 w-6 text-green-400"
+                    aria-hidden="true"
+                />
+            );
+        }
+        if (flash?.type === "error") {
+            return (
+                <XCircleIcon
+                    className="h-6 w-6 text-red-400"
+                    aria-hidden="true"
+                />
+            );
+        }
+    }
+
+    if (!flash) {
+        return null;
+    }
 
     return (
         <div
@@ -27,17 +52,14 @@ export default function FlashMessage({ message }) {
                         <div className="p-4">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0">
-                                    <CheckCircleIcon
-                                        className="h-6 w-6 text-green-400"
-                                        aria-hidden="true"
-                                    />
+                                    {renderIcon()}
                                 </div>
                                 <div className="ml-3 w-0 flex-1 pt-0.5">
                                     <p className="text-sm font-medium text-gray-900">
-                                        {message.title}
+                                        {flash.title}
                                     </p>
                                     <p className="mt-1 text-sm text-gray-500">
-                                        {message.body}
+                                        {flash.body}
                                     </p>
                                 </div>
                                 <div className="ml-4 flex flex-shrink-0">

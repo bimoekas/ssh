@@ -10,6 +10,10 @@ use Inertia\Inertia;
 
 class KategoriBarangController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('is_admin')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +57,8 @@ class KategoriBarangController extends Controller
 
         KategoriBarang::create($validated);
 
-        return redirect(route('kategori-barang.index'))->with('success', [
+        return redirect(route('kategori-barang.index'))->with('flash', [
+            'type' => 'success',
             'title' => 'Kategori Barang Tersimpan',
             'body' => 'Kategori Barang Berhasil Disimpan'
         ]);
@@ -101,7 +106,8 @@ class KategoriBarangController extends Controller
 
         $kategoriBarang->update($validated);
 
-        return redirect(route('kategori-barang.index'))->with('success', [
+        return redirect(route('kategori-barang.index'))->with('flash', [
+            'type' => 'success',
             'title' => 'Kategori Barang Tersimpan',
             'body' => 'Kategori Barang Berhasil Diupdate',
         ]);
@@ -117,7 +123,8 @@ class KategoriBarangController extends Controller
     {
         $kategoriBarang->delete();
 
-        return redirect()->back()->with('success', [
+        return redirect()->back()->with('flash', [
+            'type' => 'success',
             'title' => 'Barang Telah Dihapus',
             'body' => 'Barang Berhasil Dihapus',
         ]);

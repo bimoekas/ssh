@@ -45,7 +45,11 @@ class KategoriController extends Controller
 
         Kategori::create($request->validated());
 
-        return redirect(route('kategori.index'))->with('success', ['title' => 'Kategori Terimspan', 'body' => 'Data kategori berhasil disimpan']);
+        return redirect(route('kategori.index'))->with('flash', [
+            'type' => 'success',
+            'title' => 'Kategori Terimspan',
+            'body' => 'Data kategori berhasil disimpan'
+        ]);
     }
 
     /**
@@ -83,7 +87,11 @@ class KategoriController extends Controller
         $kategori->update($request->validated());
 
         return redirect(route('kategori.index'))
-            ->with('success', ['title' => 'Kategori Berhasil Diupdate', 'body' => 'Data kategori berhasil diupdate']);
+            ->with('flash', [
+                'type' => 'success',
+                'title' => 'Kategori Berhasil Diupdate',
+                'body' => 'Data kategori berhasil diupdate'
+            ]);
     }
 
     /**
@@ -98,6 +106,10 @@ class KategoriController extends Controller
 
         return redirect()->back()
 
-            ->with('success', ['title' => 'Kategori Dihapus', 'body' => 'Data kategori berhasil dihapus']);
+            ->with('flash', [
+                'type' => 'success',
+                'title' => 'Kategori Dihapus',
+                'body' => 'Data kategori berhasil dihapus'
+            ]);
     }
 }
