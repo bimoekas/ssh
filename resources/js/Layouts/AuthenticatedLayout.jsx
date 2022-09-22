@@ -37,7 +37,7 @@ export default function AuthenticatedLayout(props) {
             name: "Kategori Barang",
             href: route("kategori-barang.index"),
             icon: RectangleGroupIcon,
-            current: route().current("kategori-barang.index"),
+            current: route().current("kategori-barang"),
         },
         {
             name: "Barang",
@@ -208,19 +208,7 @@ export default function AuthenticatedLayout(props) {
                                 </form>
                             </div>
                             <div className="ml-4 flex items-center md:ml-6">
-                                <button
-                                    type="button"
-                                    className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                >
-                                    <span className="sr-only">
-                                        View notifications
-                                    </span>
-                                    <BellIcon
-                                        className="h-6 w-6"
-                                        aria-hidden="true"
-                                    />
-                                </button>
-
+                                <span>{props.auth.user.name}</span>
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">
                                     <div>
