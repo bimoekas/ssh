@@ -58,13 +58,7 @@ export default function KategoriBarang({ auth, errors, kategori_barang }) {
                                                 scope="col"
                                                 className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                                             >
-                                                Kode Kategori Barang
-                                            </th>
-                                            <th
-                                                scope="col"
-                                                className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                                            >
-                                                Nama Kategori Barang
+                                                Label Kategori Barang
                                             </th>
                                             <th
                                                 scope="col"
@@ -94,10 +88,7 @@ export default function KategoriBarang({ auth, errors, kategori_barang }) {
                                                     }
                                                 >
                                                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                                        {item.kode}
-                                                    </td>
-                                                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                                        {item.nama}
+                                                        {item.label}
                                                     </td>
                                                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                                         {item.kategori.nama}
