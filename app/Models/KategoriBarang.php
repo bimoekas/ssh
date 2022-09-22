@@ -11,6 +11,8 @@ class KategoriBarang extends Model
 
     protected $table = 'kategori_barang';
 
+    protected $guarded = [];
+
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'id_kategori');

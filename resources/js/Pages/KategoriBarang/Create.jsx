@@ -10,12 +10,15 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function KategoriBarangCreate(props) {
-    const { data, setData, errors, processing } = useForm({
+    const { data, setData, errors, processing, post } = useForm({
         kode: "",
         nama: "",
         id_kategori: undefined,
     });
-    function onSubmit() {}
+    function onSubmit(e) {
+        e.preventDefault();
+        post(route("kategori-barang.store"));
+    }
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -48,7 +51,7 @@ export default function KategoriBarangCreate(props) {
                                 />
 
                                 <InputError
-                                    message={errors.nama}
+                                    message={errors.kode}
                                     className="mt-2"
                                 />
                             </div>

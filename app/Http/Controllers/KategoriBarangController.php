@@ -45,7 +45,18 @@ class KategoriBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kode' => ['required', 'min:3', 'max:255', 'unique:kategori_barang,kode'],
+            'nama' => ['required', 'min:3', 'max:255'],
+            'id_kategori' => ['required', 'exists:kategori,id']
+        ]);
+
+        KategoriBarang::create($validated);
+
+        return redirect(route('kategori-barang'))->with('success', [
+            'title' => 'Kategori Barang Tersimpan',
+            'body' => 'Kategori Barang Berhasil Disimpan'
+        ]);
     }
 
     /**
