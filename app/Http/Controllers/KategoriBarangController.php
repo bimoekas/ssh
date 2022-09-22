@@ -12,7 +12,7 @@ class KategoriBarangController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('is_admin')->only('destroy');
+        // $this->middleware('is_admin')->only('destroy');
     }
     /**
      * Display a listing of the resource.
@@ -36,8 +36,10 @@ class KategoriBarangController extends Controller
      */
     public function create()
     {
+
         return Inertia::render('KategoriBarang/Create', [
             'kategori' => Kategori::all(),
+            'can_create' => request()->user()->can('create', KategoriBarang::class),
         ]);
     }
 
@@ -121,6 +123,8 @@ class KategoriBarangController extends Controller
      */
     public function destroy(KategoriBarang $kategoriBarang)
     {
+        $this->authorize('delete', $kategoriBarang);
+
         $kategoriBarang->delete();
 
         return redirect()->back()->with('flash', [
