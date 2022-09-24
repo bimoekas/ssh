@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Kategori;
 use App\Models\KategoriBarang;
+use App\Models\Barang;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -42,5 +43,13 @@ class DatabaseSeeder extends Seeder
 
         //Generate 5 Kategori Barang, dalam proses generate kategori barang tersebut. 5 kategori juga akan otomatis tergenerate
         KategoriBarang::factory(5)->create();
+
+        $kategori_barang = KategoriBarang::factory()->create();
+
+        Barang::factory(5)->create([
+            'id_kategori_barang' => $kategori_barang->id
+        ]);
+
+        Barang::factory(5)->create();
     }
 }

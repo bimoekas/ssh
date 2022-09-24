@@ -39,7 +39,7 @@ export default function AuthenticatedLayout(props) {
         },
         {
             name: "Barang",
-            href: route("barang"),
+            href: route("barang.index"),
             icon: ArchiveBoxIcon,
             current: route().current("barang"),
         },
