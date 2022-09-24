@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'id_kategori' => $kategori->id
         ]);
 
-        //Generate 5 Kategori Barang, dalam proses generate kategori barang tersebut. 5 kategori juga akan otomatis tergenerate
+        // //Generate 5 Kategori Barang, dalam proses generate kategori barang tersebut. 5 kategori juga akan otomatis tergenerate
         KategoriBarang::factory(5)->create();
 
         $kategori_barang = KategoriBarang::factory()->create();

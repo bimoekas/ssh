@@ -91,8 +91,8 @@ class BarangController extends Controller
     public function edit(Barang $barang)
     {
         return Inertia::render('Barang/Edit', [
-            'kategori' => KategoriBarang::all(),
-            'barang' => $barang
+            'barang' => KategoriBarang::all(),
+            'edit_barang' => $barang
         ]);
     }
 

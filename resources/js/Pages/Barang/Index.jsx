@@ -8,7 +8,7 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 export default function Barang({ auth, errors, barang }) {
     function handleDelete(target) {
         Swal.fire({
-            title: "Anda yakin ingin menghapus kategori barang?",
+            title: "Anda yakin ingin menghapus barang?",
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: "Ya",
@@ -101,6 +101,12 @@ export default function Barang({ auth, errors, barang }) {
                                                 scope="col"
                                                 className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                                             >
+                                                Kategori Nama Barang
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                                            >
                                                 Keterangan
                                             </th>
                                             <th
@@ -124,7 +130,7 @@ export default function Barang({ auth, errors, barang }) {
                                                 }
                                             >
                                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                                    {item.id}
+                                                    {item.kode}
                                                 </td>
                                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                                     {item.nama}
@@ -143,6 +149,12 @@ export default function Barang({ auth, errors, barang }) {
                                                 </td>
                                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                                     {item.harga}
+                                                </td>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                                    {item.kategori_barang.nama}
+                                                </td>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                                    {item.keterangan}
                                                 </td>
                                                 <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium space-x-2 sm:pr-6">
                                                     <Link

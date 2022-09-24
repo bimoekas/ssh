@@ -10,14 +10,14 @@ import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function BarangForm(props) {
     // Cek apakah kita melakukan create atau edit
-    const isEditing = props.barang ? true : false; //Boolean(props.kategori_barang)
+    const isEditing = props.edit_barang ? true : false; //Boolean(props.kategori_barang)
 
     // Untuk create inisialisasi data dilakukan manual, untuk
     // edit inisialisasi data dilakukan dengan mengambil
     // data kategori_barang dari controller
     const { data, setData, errors, processing, submit } = useForm(
         isEditing
-            ? props.barang
+            ? props.edit_barang
             : {
                   kode: "",
                   nama: "",
@@ -35,7 +35,7 @@ export default function BarangForm(props) {
         // Untuk create kita menggunakan route store, sedangkan
         // Untuk edit kita menggunakan route update
         const submitUrl = isEditing
-            ? route("barang.update", props.barang.id)
+            ? route("barang.update", props.edit_barang.id)
             : route("barang.store");
 
         // Untuk create kita lakukan post request, sedangkan
@@ -74,7 +74,10 @@ export default function BarangForm(props) {
                 <InputError message={errors.nama} className="mt-2" />
             </div>
             <div>
-                <InputLabel forInput="spesifikasi" value="Spesifikasi Barang" />
+                <InputLabel
+                    forInput="spesifikasi_barang"
+                    value="Spesifikasi Barang"
+                />
 
                 <TextInput
                     type="text"
@@ -158,7 +161,7 @@ export default function BarangForm(props) {
                                     <span className="block truncate">
                                         {props.barang.find(
                                             (item) =>
-                                                item.id ===
+                                                item.id_kategori ===
                                                 data.id_kategori_barang
                                         )?.nama || "Pilih Kategori"}
                                         {/* TODO: load nama Kategori */}

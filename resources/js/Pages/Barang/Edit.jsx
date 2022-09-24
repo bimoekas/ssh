@@ -16,8 +16,8 @@ export default function BarangCreate(props) {
                 <div className="bg-white shadow-sm sm:rounded-lg">
                     <div className="p-6 bg-white border-b border-gray-200">
                         <BarangForm
-                            kategori={props.barang}
                             barang={props.barang}
+                            edit_barang={props.edit_barang}
                         />
                     </div>
                 </div>
