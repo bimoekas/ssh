@@ -17,6 +17,10 @@ class Barang extends Model
 
     public function kategori_barang()
     {
+<<<<<<< HEAD
         return $this->belongsTo(KategoriBarang::class, 'id_kategori_barang');
+=======
+        return $this->hasOne(KategoriBarang::class, 'id_kategori');
+>>>>>>> 4f0f58be1188583bd150b566f0d966554e26c223
     }
 }

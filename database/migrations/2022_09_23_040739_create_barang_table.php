@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('barang', function (Blueprint $table) {
             $table->id();
             $table->string('kode')->unique();
-            $table->string('uraian');
+            $table->string('uraian')->nullable();
+            $table->string('nama');
             $table->text('spesifikasi');
             $table->string('merk');
             $table->text('keterangan');

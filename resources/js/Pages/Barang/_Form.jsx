@@ -10,7 +10,11 @@ import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function BarangForm(props) {
     // Cek apakah kita melakukan create atau edit
+<<<<<<< HEAD
     const isEditing = props.edit_barang ? true : false; //Boolean(props.kategori_barang)
+=======
+    const isEditing = props.isEdit; //Boolean(props.kategori_barang)
+>>>>>>> 4f0f58be1188583bd150b566f0d966554e26c223
 
     // Untuk create inisialisasi data dilakukan manual, untuk
     // edit inisialisasi data dilakukan dengan mengambil

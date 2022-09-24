@@ -2,6 +2,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import BarangForm from "./_Form";
 
 export default function BarangCreate(props) {
+    console.log(props)
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -16,7 +17,7 @@ export default function BarangCreate(props) {
                 <div className="bg-white shadow-sm sm:rounded-lg">
                     <div className="p-6 bg-white border-b border-gray-200">
                         {props.can_create ? (
-                            <BarangForm barang={props.barang} />
+                            <BarangForm barang={props.barang} isEdit={props.is_edit}/>
                         ) : (
                             <h1>
                                 Hanya Admin Yang Dapat Menambahkan Kategori Baru

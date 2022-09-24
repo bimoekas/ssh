@@ -39,6 +39,7 @@ class BarangController extends Controller
 
         return Inertia::render('Barang/Create', [
             'barang' => KategoriBarang::all(),
+            'is_edit' => false,
             'can_create' => request()->user()->can('create', Barang::class),
         ]);
     }
