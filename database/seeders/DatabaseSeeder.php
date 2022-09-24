@@ -37,19 +37,19 @@ class DatabaseSeeder extends Seeder
 
 
         //Generate 5 Kategori Barang Dengan Kategori berID 1
-        KategoriBarang::factory(5)->create([
-            'id_kategori' => $kategori->id
-        ]);
+        // KategoriBarang::factory(5)->create([
+        //     'id_kategori' => $kategori->id
+        // ]);
 
         //Generate 5 Kategori Barang, dalam proses generate kategori barang tersebut. 5 kategori juga akan otomatis tergenerate
-        KategoriBarang::factory(5)->create();
+        // KategoriBarang::factory(5)->create();
 
-        $kategori_barang = KategoriBarang::factory()->create();
+        // $kategori_barang = KategoriBarang::factory()->create();
 
-        Barang::factory(5)->create([
-            'id_kategori_barang' => $kategori_barang->id
-        ]);
+        // Barang::factory(5)->create([
+        //     'id_kategori_barang' => $kategori_barang->id
+        // ]);
 
-        Barang::factory(5)->create();
+        // Barang::factory(5)->create();
     }
 }
